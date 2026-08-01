@@ -5,8 +5,8 @@ dotenv.config();
 
 const USER = {
     id: 'user_001',
-    email: 'test@gmail.com',
-    password: '123456',
+    email: 'MFCR090205@gmail.com',
+    password: 'MFCR@RJDM2026',
     role: 'admin'
 };
 

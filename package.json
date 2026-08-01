@@ -5,9 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "help": "node help.js"
+    "test": "echo \"Error: ninguna prueba especificada\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "agusdYT",
