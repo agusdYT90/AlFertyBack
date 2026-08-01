@@ -4,162 +4,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Productos</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f4f4;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #333;
-    }
-
-    form,
-    .actions,
-    #outputContainer {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #555;
-    }
-
-    #output {
-      background: #222;
-      color: #0f0;
-      padding: 10px;
-      border-radius: 5px;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-
-    #status {
-      margin-bottom: 20px;
-    }
-  </style>
+  <title>Gestión de Productos</title>
 </head>
 
 <body>
   <h1>Gestión de Productos</h1>
 
-  <!-- Estado de login -->
+  <h2>Resultados:</h2>
+  <div id="outputContainer">
+    <button type="button" onclick="toggleOutput()">
+      Mostrar/Ocultar resultados</button>
+    <pre id="output"></pre>
+  </div>
+
   <div id="status">
     <h2>No registrado</h2>
   </div>
 
-  <!-- Login -->
   <form id="loginForm">
-    <h3>Login</h3>
     <label>Email:</label>
-    <input type="text" id="email" placeholder="Email" required>
+    <input type="text" placeholder="Email" id="email">
 
     <label>Password:</label>
-    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" placeholder="Password" id="password">
 
     <button type="button" onclick="login()">Login</button>
   </form>
 
-  <!-- Resultados -->
-  <h2>Resultados:</h2>
-  <div id="outputContainer">
-    <button type="button" onclick="toggleOutput()">Mostrar/Ocultar resultados</button>
-    <pre id="output"></pre>
-  </div>
-
-  <!-- Mostrar todos -->
   <div class="actions">
     <h3>Mostrar todos los productos</h3>
-    <button type="button" onclick="getAll()">Mostrar</button>
+    <button onclick="getAll()">Mostrar</button>
   </div>
 
-  <!-- Buscar -->
   <form id="searchForm">
     <h3>Buscar producto por ID</h3>
     <label>ID del producto:</label>
-    <input type="text" id="searchId" placeholder="ID del producto" required>
+    <input type="text" placeholder="ID del producto" id="searchId">
     <button type="button" onclick="getById(); clearForm('searchForm');">Buscar producto</button>
   </form>
 
-  <!-- Actualizar -->
   <form id="updateForm">
     <h3>Actualizar producto</h3>
     <label>ID del producto a actualizar:</label>
-    <input type="text" id="updateId" placeholder="ID del producto" required>
+    <input type="text" placeholder="ID del producto" id="updateId" required>
 
     <label>Nuevo nombre:</label>
-    <input type="text" id="updateName" placeholder="Nuevo nombre" required>
+    <input type="text" placeholder="Nuevo nombre" id="updateName" required>
 
     <label>Nuevo precio:</label>
-    <input type="number" id="updatePrice" placeholder="Nuevo precio" required>
+    <input type="number" placeholder="Nuevo precio" id="updatePrice" required>
 
     <label>Nuevo stock:</label>
-    <input type="number" id="updateStock" placeholder="Nuevo stock" required>
+    <input type="number" placeholder="Nuevo stock" id="updateStock" required>
 
     <label>Nueva descripción:</label>
-    <input type="text" id="updateDescription" placeholder="Nueva descripción">
+    <input type="text" placeholder="Nueva descripción" id="updateDescription">
 
     <button type="button" onclick="updateProduct(); clearForm('updateForm');">Actualizar producto</button>
   </form>
 
-  <!-- Crear -->
   <form id="createForm">
     <h3>Crear producto</h3>
     <label>ID (opcional):</label>
-    <input type="text" id="createId" placeholder="ID del producto">
+    <input type="text" placeholder="ID del producto" id="createId">
 
     <label>Nombre:</label>
-    <input type="text" id="createName" placeholder="Nombre del producto" required>
+    <input type="text" placeholder="Nombre del producto" id="createName" required>
 
     <label>Precio:</label>
-    <input type="number" id="createPrice" placeholder="Precio del producto" required>
+    <input type="number" placeholder="Precio del producto" id="createPrice" required>
 
     <label>Stock:</label>
-    <input type="number" id="createStock" placeholder="Stock del producto" required>
+    <input type="number" placeholder="Stock del producto" id="createStock" required>
 
     <label>Descripción:</label>
-    <input type="text" id="createDescription" placeholder="Descripción del producto">
+    <input type="text" placeholder="Descripción del producto" id="createDescription">
 
     <button type="button" onclick="createProduct(); clearForm('createForm');">Crear producto</button>
   </form>
 
-  <!-- Eliminar -->
   <form id="deleteForm">
-    <h3>Eliminar producto</h3>
     <label>ID a eliminar:</label>
-    <input type="text" id="deleteId" placeholder="ID del producto" required>
+    <input type="text" placeholder="ID del producto a eliminar" id="deleteId">
     <button type="button" onclick="deleteProduct(); clearForm('deleteForm')">Eliminar producto</button>
   </form>
 
