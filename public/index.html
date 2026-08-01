@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Gestión de Productos</title>
+</head>
+
+<body>
+  <h1>Gestión de Productos</h1>
+
+  <h2>Resultados:</h2>
+  <div id="outputContainer">
+    <button type="button" onclick="toggleOutput()" style="background-color: #333; color: white">
+      Mostrar/Ocultar resultados</button>
+    <pre id="output"></pre>
+  </div>
+
+  <div id="status">
+    <h2>No registrado</h2>
+  </div>
+
+  <form id="loginForm">
+    <label>Email:</label>
+    <input type="text" id="email">
+
+    <label>Password:</label>
+    <input type="password" id="password">
+
+    <button type="button" onclick="login()">Login</button>
+  </form>
+
+  <div class="actions">
+    <h3>Mostrar todos los productos</h3>
+    <button onclick="getAll()">Mostrar</button>
+  </div>
+
+  <form id="searchForm">
+    <h3>Buscar producto por ID</h3>
+    <label>ID del producto:</label>
+    <input type="text" id="searchId">
+    <button type="button" onclick="getById(); clearForm('searchForm');">Buscar producto</button>
+  </form>
+
+  <form id="updateForm">
+    <h3>Actualizar producto</h3>
+    <label>ID del producto a actualizar:</label>
+    <input type="text" id="updateId" required>
+
+    <label>Nuevo nombre:</label>
+    <input type="text" id="updateName" required>
+
+    <label>Nuevo precio:</label>
+    <input type="number" id="updatePrice" required>
+
+    <label>Nuevo stock:</label>
+    <input type="number" id="updateStock" required>
+
+    <label>Nueva descripción:</label>
+    <input type="text" id="updateDescription">
+
+    <button type="button" onclick="updateProduct(); clearForm('updateForm');">Actualizar producto</button>
+  </form>
+
+  <form id="createForm">
+    <h3>Crear producto</h3>
+    <label>ID (opcional):</label>
+    <input type="text" id="createId">
+
+    <label>Nombre:</label>
+    <input type="text" id="createName" required>
+
+    <label>Precio:</label>
+    <input type="number" id="createPrice" required>
+
+    <label>Stock:</label>
+    <input type="number" id="createStock" required>
+
+    <label>Descripción:</label>
+    <input type="text" id="createDescription">
+
+    <button type="button" onclick="createProduct(); clearForm('createForm');">Crear producto</button>
+  </form>
+
+  <form id="deleteForm">
+    <label>ID a eliminar:</label>
+    <input type="text" id="deleteId">
+    <button type="button" onclick="deleteProduct(); clearForm('deleteForm')">Eliminar producto</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
