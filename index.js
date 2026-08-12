@@ -47,15 +47,11 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
     const status = err.status || 500;
-
-    if (err.name === 'UnauthorizedError') {
-        return res.status(401).json({ error: 'Unauthorized', message: 'Token inválido o ausente' });
-    }
-
     res.status(status).json({
         error: status === 500 ? 'Internal Server Error' : 'Error',
         message: err.message || 'Ocurrió un error inesperado'
     });
 });
+
 
 export default app;
