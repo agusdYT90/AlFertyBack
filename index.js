@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import products from './src/routes/products.js';
 import auth from './src/routes/authRoutes.js';
-import discord from './src/routes/notificationRoutes.js';
 
 dotenv.config();
 
@@ -36,7 +35,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/products', products);
 app.use('/auth', auth);
-app.use('/discord', discord);
 
 app.use((req, res, next) => {
     res.status(404).json({
