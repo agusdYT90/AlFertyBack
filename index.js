@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.use('/api/products', products);
-app.use('/api/users', users);
+app.use('/products', products);
+app.use('/users', users);
 app.use('/auth', auth);
 
 app.use((req, res, next) => {

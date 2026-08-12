@@ -4,11 +4,11 @@ import { authenticateUser, authenticateAdmin } from '../middlewares/authMiddlewa
 
 const router = Router();
 
-router.get('/api/products', ProductsControllers.productsTodos);
-router.get('/api/products/:id', ProductsControllers.productsId);
+router.get('/', ProductsControllers.productsTodos);
+router.get('/:id', ProductsControllers.productsId);
 
-router.post('/api/products', authenticateAdmin, ProductsControllers.productsCrear);
-router.put('/api/products/:id', authenticateAdmin, ProductsControllers.productsActualizar);
-router.delete('/api/products/:id', authenticateAdmin, ProductsControllers.productsEliminar);
+router.post('/', authenticateAdmin, ProductsControllers.productsCrear);
+router.put('/:id', authenticateAdmin, ProductsControllers.productsActualizar);
+router.delete('/:id', authenticateAdmin, ProductsControllers.productsEliminar);
 
 export default router;

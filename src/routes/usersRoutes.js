@@ -4,10 +4,10 @@ import { authenticateUser, authenticateAdmin } from '../middlewares/authMiddlewa
 
 const router = Router();
 
-router.get('/api/users', authenticateAdmin, usersControllers.usersTodos);
-router.get('/api/users/:id', authenticateUser, usersControllers.usersId);
-router.post('/api/users', authenticateUser, usersControllers.usersCrear);
-router.put('/api/users/:id', authenticateUser, usersControllers.usersActualizar);
-router.delete('/api/users/:id', authenticateUser, usersControllers.usersEliminar);
+router.get('/', authenticateAdmin, usersControllers.usersTodos);
+router.get('/:id', authenticateUser, usersControllers.usersId);
+router.post('/', authenticateUser, usersControllers.usersCrear);
+router.put('/:id', authenticateUser, usersControllers.usersActualizar);
+router.delete('/:id', authenticateUser, usersControllers.usersEliminar);
 
 export default router;
