@@ -3,8 +3,9 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import products from './src/routes/products.js';
+import products from './src/routes/productsRoutes.js';
 import auth from './src/routes/authRoutes.js';
+import users from './src/routes/usersRoutes.js';
 
 dotenv.config();
 
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/products', products);
+app.use('/api/users', users);
 app.use('/auth', auth);
 
 app.use((req, res, next) => {
