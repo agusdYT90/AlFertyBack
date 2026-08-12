@@ -6,6 +6,7 @@ import express from 'express';
 import products from './src/routes/productsRoutes.js';
 import auth from './src/routes/authRoutes.js';
 import users from './src/routes/usersRoutes.js';
+import notification from './src/routes/notificationRoutes.js';
 
 dotenv.config();
 
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 app.use('/products', products);
 app.use('/users', users);
 app.use('/auth', auth);
+app.use('/notification', notification);
 
 app.use((req, res, next) => {
     res.status(404).json({
