@@ -1,7 +1,4 @@
 import fetch from "node-fetch";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export const Discord = {
     async sendMessage(content) {
@@ -16,7 +13,18 @@ export const Discord = {
                 throw new Error(`Error al notificar el pedido: ${response.statusText}`);
             }
 
-            return await response.json();
+            if (response.status === 204) {
+                return { success: true };
+            }
+
+            let result;
+            try {
+                result = await response.json();
+            } catch {
+                result = { success: true };
+            }
+
+            return result;
         } catch (err) {
             console.error("Error en DiscordService:", err.message);
             throw err;
