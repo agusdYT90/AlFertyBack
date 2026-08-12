@@ -7,9 +7,9 @@ import products from './src/routes/products.js';
 import auth from './src/routes/authRoutes.js';
 import discord from './src/routes/notificationRoutes.js';
 
-const app = express();
-
 dotenv.config();
+
+const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
