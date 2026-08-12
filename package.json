@@ -17,6 +17,11 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "firebase": "^12.6.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "allowScripts": {
+    "@firebase/util@1.13.0": true,
+    "protobufjs@7.6.5": true
   }
 }
