@@ -1,7 +1,7 @@
 import { db } from '../config/firebase.js';
 import { collection, doc, getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 
-const USERS_COLLECTION = 'users';
+const USERS_COLLECTION = 'usuarios';
 const colRef = collection(db, USERS_COLLECTION);
 
 const mapUserDoc = (docSnap) => ({

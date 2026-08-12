@@ -1,7 +1,7 @@
 import { db } from '../config/firebase.js';
 import { collection, doc, getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc } from 'firebase/firestore';
 
-const PRODUCTS_COLLECTION = 'products';
+const PRODUCTS_COLLECTION = 'productos';
 const colRef = collection(db, PRODUCTS_COLLECTION);
 
 const mapProductDoc = (docSnap) => ({
