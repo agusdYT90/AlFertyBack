@@ -24,4 +24,9 @@ div {
 h1 {
     font-size: 40px;
     color: #490755;
+    background: linear-gradient(to right, #490755, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 5px solid #490755;
 }
