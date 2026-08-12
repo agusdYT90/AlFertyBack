@@ -14,14 +14,14 @@ div {
     padding: 20px;
     height: 50%;
     width: 50%;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 h1 {
-    font-size: 25px;
-    color: #333;
+    font-size: 40px;
+    color: #490755;
 }
