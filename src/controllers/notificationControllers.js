@@ -1,4 +1,4 @@
-import { Discord } from "../services/notificationService.js";
+import { Discord } from "../services/notificationServices.js";
 
 export const NotificationController = {
     async notify(req, res, next) {
