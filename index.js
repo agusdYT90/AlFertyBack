@@ -3,20 +3,19 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import productsRouter from './src/routes/productsRoutes.js';
-import authRouter from './src/routes/authRoutes.js';
+import products from './src/routes/products.js';
+import auth from './src/routes/authRoutes.js';
+import discord from './src/routes/notificationRoutes.js';
 
 const app = express();
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-    origin: [`http://localhost:${PORT}`, 'https://node-agus-com.vercel.app'],
+    origin: process.env.URLS_OKEY,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: ['Authorization'],
@@ -34,8 +33,9 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.use('/api/products', productsRouter);
-app.use('/auth', authRouter);
+app.use('/api/products', products);
+app.use('/auth', auth);
+app.use('/discord', discord);
 
 app.use((req, res, next) => {
     res.status(404).json({
@@ -55,10 +55,6 @@ app.use((err, req, res, next) => {
         error: status === 500 ? 'Internal Server Error' : 'Error',
         message: err.message || 'Ocurrió un error inesperado'
     });
-});
-
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
 
 export default app;
