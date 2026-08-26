@@ -20,12 +20,3 @@ div {
     justify-content: center;
     align-items: center;
 }
-
-h1 {
-    font-size: 40px;
-    color: #490755;
-    background: linear-gradient(to right, #ff00ff, #490755);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
