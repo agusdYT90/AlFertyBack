@@ -14,4 +14,5 @@ body {
 img {
     max-width: 50%;
     height: auto;
+    filter: brightness(0.8);
 }
