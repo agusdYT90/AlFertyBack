@@ -1,7 +1,5 @@
 import dotenv from "dotenv";
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import express from 'express';
 import products from './src/routes/productsRoutes.js';
 import auth from './src/routes/authRoutes.js';
@@ -11,9 +9,6 @@ import notification from './src/routes/notificationRoutes.js';
 dotenv.config();
 
 const app = express();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const allowedOrigins = process.env.URLS_OKEY.split(",");
 
 app.use(cors({
@@ -28,12 +23,6 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
 
 app.use('/products', products);
 app.use('/users', users);
