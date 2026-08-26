@@ -1,7 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background: #f4f4f4;
+    margin: 0;
+    background-image: url('/Plantillas-Body.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,13 +12,11 @@ body {
     width: 100vw;
 }
 
+
 div {
-    background: #000000;
     padding: 20px;
     height: 50%;
     width: 50%;
-    border-radius: 20px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
